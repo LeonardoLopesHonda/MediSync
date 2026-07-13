@@ -1,32 +1,30 @@
-# MediSync - PRD
+# MediSync
 
-### Objectives
+MediSync is an AI-powered healthcare platform that delivers real-time medical insights from user-reported symptoms. It grounds its analysis in real biomedical literature (PubMed), recommends the appropriate medical specialty through AI-based triage, and helps users find nearby hospitals and healthcare professionals — all through a simple, responsive web interface.
 
-The objective of this PRD is to clarify the requirements of the MediSync software, an AI-powered healthcare platform that aims to deliver real-time medical insights. The pratform provides AI-powered medical insights using modern web technologies.
+## Documentation
 
-### Glossary
+Full product and technical context lives in [`docs/`](./docs):
 
-- FR - Functional Requirement
-- NFR - Non-Functional Requirement
-- PRD - Product Requirements Document
+- [PRD](./docs/PRD.md) — requirements, objectives, and assumptions.
+- [Glossary](./docs/GLOSSARY.md) — shared vocabulary for the project.
+- [Tech Stack](./docs/TECH_STACK.md) — chosen technologies and why.
+- [Architecture](./docs/ARCHITECTURE.md) — how the system is structured and how requests flow through it.
+- [Features](./docs/FEATURES.md) — feature list mapped to requirements.
+- [Strategies](./docs/STRATEGIES.md) — retrieval, latency, prompting, and failure-handling approaches.
 
-### Requirements
+## Project structure
 
-- FR-01 - The system must analyze user-provided symptom using information retrieved from PubMed.
-- FR-02 - The system must recommend the appropriate medical specialty through AI-based triage.
-- FR-03 - The system must locate nearby hospitals and healthcare professionals using Google Maps.
-- FR-04 - The system must provide a sumary of possible causes, treatment and preventive measures based on retrieved medical information.
-- FR-05 - The system must automatically detect the user's location.
-- FR-06 - The system must have a PubMed API integration to fetch research papers.
-- FR-07 - The system must recommend specialized doctors automatically on the AI triage.
-- FR-08 - The system must use semantic search to retrieve information from the Vector Database.
+Monorepo, modular monolith backend:
 
-- NFR-01 - The system must have a simple, responsive and easy to navigate interface.
-- NFR-02 - The system must respond to user requests within 5 seconds under normal operating conditions.
-### Assumptions
+```
+medisync/
+├── backend/     # FastAPI backend (intake, retrieval, triage, summary, location modules)
+├── frontend/    # React (Vite) SPA
+├── docs/        # PRD and supporting documentation
+└── CLAUDE.md    # guidance for Claude Code when working in this repo
+```
 
-This system assumes that:
-- On its first version it'll not have authentication service.
-- The PubMed API is available.
-- The OpenAI Model (gpt-4o) is available.
-- There will be no safeguards against extensive anonymous usage.
+## Installation
+
+Not yet available — this project is in the planning/pre-implementation stage. Setup instructions will be added here once the initial implementation is complete.
