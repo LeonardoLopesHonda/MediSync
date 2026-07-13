@@ -23,8 +23,8 @@ medisync/
 
 ## Request flow
 
-1. **Intake** — user submits free-text symptoms via the frontend; browser geolocation is captured automatically (FR-05) and sent alongside.
-2. **Retrieval (RAG)** — the `retrieval` module embeds the symptom query (`text-embedding-3-small`) and runs semantic search against PubMed abstracts stored in `pgvector` (FR-08). If relevant literature isn't already ingested, it's fetched live from the PubMed/Entrez API (FR-06).
+1. **Intake** — user submits symptoms as a comma-separated list (e.g. `fever, cough, fatigue`) via the frontend; the `intake` module parses this into discrete symptom terms. Browser geolocation is captured automatically (FR-05) and sent alongside.
+2. **Retrieval (RAG)** — the `retrieval` module embeds each discrete symptom term (`text-embedding-3-small`) and runs semantic search against PubMed abstracts stored in `pgvector` (FR-08), merging/deduplicating results across symptoms. If relevant literature isn't already ingested, it's fetched live from the PubMed/Entrez API (FR-06).
 3. **Triage + Summary** — retrieved abstracts + symptoms are passed through a LangChain pipeline to `gpt-4o`, producing (a) a recommended medical specialty (FR-02, FR-07) and (b) a summary of possible causes, treatments, and preventive measures (FR-04).
 4. **Location** — in parallel with step 3, the `location` module queries the Google Maps API for nearby hospitals/professionals matching the recommended specialty (FR-03).
 5. **Response assembly** — the backend combines triage result, summary, and nearby providers into a single response for the frontend to render.

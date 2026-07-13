@@ -4,7 +4,8 @@ Cross-cutting approaches that aren't tied to a single feature but shape how the 
 
 ## Retrieval (RAG) strategy
 
-- Symptom text is embedded with `text-embedding-3-small` and matched against a `pgvector` index of PubMed abstracts.
+- Input is a comma-separated list of symptoms (e.g. `fever, cough, fatigue`), not free-text prose. The `intake` module splits/normalizes this into discrete symptom terms before anything downstream sees it.
+- Each discrete symptom term is embedded separately with `text-embedding-3-small` and queried against `pgvector` independently, then results are merged and deduplicated — discrete per-symptom queries retrieve more precise abstracts than embedding the whole list as one blended query.
 - Two ingestion modes to consider: pre-ingesting a curated set of common-condition abstracts (fast, predictable latency) vs. fetching live from PubMed/Entrez on cache miss (broader coverage, higher latency). Start with live fetch + cache-by-query, since v1 has no pre-defined symptom taxonomy to pre-ingest against.
 - Cache retrieved PubMed results by normalized query to avoid re-fetching/re-embedding identical symptom queries.
 

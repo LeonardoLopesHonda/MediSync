@@ -6,7 +6,7 @@
 | FR / NFR | Functional Requirement / Non-Functional Requirement, as numbered in the PRD. |
 | MVP | Minimum Viable Product — the first shippable version of MediSync, scoped to the PRD's FR-01 through FR-08 with no authentication. |
 | Triage | The process of mapping a user's reported symptoms to a recommended medical specialty (FR-02, FR-07). |
-| Symptom Intake | The entry point of the system where a user submits free-text symptoms (and, optionally, location). |
+| Symptom Intake | The entry point of the system where a user submits symptoms as a comma-separated list (e.g. `fever, cough, fatigue`), and optionally location. |
 | RAG (Retrieval-Augmented Generation) | The pattern of retrieving relevant documents (PubMed abstracts) and injecting them into an LLM prompt so responses are grounded in real medical literature instead of the model's unaided memory. |
 | Embedding | A numeric vector representation of text, produced by an embedding model, used to measure semantic similarity. |
 | Vector Database | A database optimized for storing embeddings and running similarity search over them. MediSync uses Postgres with the `pgvector` extension. |

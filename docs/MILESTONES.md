@@ -12,10 +12,10 @@ Goal: an empty but running system, monorepo wired end to end.
 
 ## M1 — Symptom retrieval (FR-01, FR-06, FR-08)
 Goal: given symptom text, return relevant PubMed literature via semantic search.
-- [ ] `intake` module: endpoint accepting free-text symptoms.
-- [ ] `retrieval` module: PubMed/Entrez fetch for a given query.
+- [ ] `intake` module: endpoint accepting a comma-separated symptom list (e.g. `fever, cough, fatigue`), parsed into discrete symptom terms.
+- [ ] `retrieval` module: PubMed/Entrez fetch for a given symptom term.
 - [ ] Embedding pipeline (`text-embedding-3-small`) storing abstracts + vectors in `pgvector`.
-- [ ] Semantic search query returning top-N relevant abstracts for a symptom query.
+- [ ] Semantic search query returning top-N relevant abstracts per symptom term, merged/deduplicated across the input list.
 - [ ] Demo: submit symptoms → get back relevant PubMed abstracts.
 
 ## M2 — AI triage + condition summary (FR-02, FR-04, FR-07)

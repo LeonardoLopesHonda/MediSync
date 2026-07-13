@@ -3,7 +3,7 @@
 Each feature maps directly to one or more Functional Requirements in the [PRD](./PRD.md).
 
 ## Symptom Analysis (FR-01, FR-06)
-User enters free-text symptoms; the system retrieves relevant medical literature from PubMed to ground its analysis in real research rather than the LLM's unaided knowledge.
+User enters symptoms as a comma-separated list (e.g. `fever, cough, fatigue`); the system parses them into discrete terms and retrieves relevant medical literature from PubMed to ground its analysis in real research rather than the LLM's unaided knowledge.
 
 ## AI Triage (FR-02, FR-07)
 Given the symptoms and retrieved literature, the system recommends the appropriate medical specialty and automatically suggests specialized doctors matching that recommendation.
