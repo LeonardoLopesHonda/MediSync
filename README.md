@@ -12,6 +12,7 @@ Full product and technical context lives in [`docs/`](./docs):
 - [Architecture](./docs/ARCHITECTURE.md) — how the system is structured and how requests flow through it.
 - [Features](./docs/FEATURES.md) — feature list mapped to requirements.
 - [Strategies](./docs/STRATEGIES.md) — retrieval, latency, prompting, and failure-handling approaches.
+- [Workflow](./docs/WORKFLOW.md) — the code → test → commit → review development loop.
 
 ## Project structure
 
