@@ -17,6 +17,7 @@ Full context lives in [`docs/`](./docs) — read these before making product or 
 - [`docs/FEATURES.md`](./docs/FEATURES.md) — feature list mapped to requirements.
 - [`docs/STRATEGIES.md`](./docs/STRATEGIES.md) — retrieval, latency, prompting, and failure-handling approaches.
 - [`docs/WORKFLOW.md`](./docs/WORKFLOW.md) — the code → test → commit → review development loop; follow it for every change (small module-scoped slices, run `/verify` and `/code-review` before committing/pushing).
+- [`docs/MILESTONES.md`](./docs/MILESTONES.md) — sequential iterations toward v1 (M0 scaffolding → M5 deployment). Check current milestone status here before starting new work, and check items off as they land.
 
 ## Decided direction (see docs for rationale)
 

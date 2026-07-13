@@ -13,6 +13,7 @@ Full product and technical context lives in [`docs/`](./docs):
 - [Features](./docs/FEATURES.md) — feature list mapped to requirements.
 - [Strategies](./docs/STRATEGIES.md) — retrieval, latency, prompting, and failure-handling approaches.
 - [Workflow](./docs/WORKFLOW.md) — the code → test → commit → review development loop.
+- [Milestones](./docs/MILESTONES.md) — sequential iterations toward v1.
 
 ## Project structure
 
