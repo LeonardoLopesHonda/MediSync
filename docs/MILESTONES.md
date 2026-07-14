@@ -4,11 +4,11 @@ Sequential milestones toward the v1 MVP defined in the [PRD](./PRD.md). Each mil
 
 ## M0 — Project scaffolding
 Goal: an empty but running system, monorepo wired end to end.
-- [ ] `backend/` FastAPI app skeleton with a health-check endpoint.
-- [ ] `frontend/` React (Vite) app skeleton that calls the health-check endpoint.
-- [ ] Postgres + `pgvector` running locally (docker-compose) with a minimal schema migration.
-- [ ] `pytest` and `vitest` wired up and runnable, even with placeholder tests.
-- [ ] `CLAUDE.md` **Commands** section updated with the real build/lint/test/dev commands.
+- [x] `backend/` FastAPI app skeleton with a health-check endpoint.
+- [x] `frontend/` React (Vite) app skeleton that calls the health-check endpoint.
+- [x] Postgres + `pgvector` running locally (docker-compose) with a minimal schema migration.
+- [x] `pytest` and `vitest` wired up and runnable, even with placeholder tests.
+- [x] `CLAUDE.md` **Commands** section updated with the real build/lint/test/dev commands.
 
 ## M1 — Symptom retrieval (FR-01, FR-06, FR-08)
 Goal: given symptom text, return relevant PubMed literature via semantic search.
