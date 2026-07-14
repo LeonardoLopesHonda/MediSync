@@ -51,3 +51,7 @@ Full context lives in [`docs/`](./docs) — read these before making product or 
 - The system assumes availability of the PubMed API and `gpt-4o` as external dependencies.
 - No anti-abuse/rate-limiting safeguards required in v1.
 - Non-functional target: end-to-end response within 5 seconds (NFR-02) — see the latency strategy in `docs/STRATEGIES.md` (concurrent triage + location lookup) before adding sequential external calls.
+
+## Commit authorship
+
+Do not add `Co-Authored-By: Claude` (or any Claude/Anthropic attribution) to commit messages in this repository. Commits should carry only the human author.
