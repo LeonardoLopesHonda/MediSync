@@ -4,7 +4,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project status
 
-This repository is **pre-implementation**. It currently contains only documentation (`docs/`) and no source code, scaffolding, or build/lint/test tooling. There is nothing to build or run yet. When code is added, this file should be updated with real commands (build/lint/test/dev), and this section should be replaced with an architecture overview grounded in that code.
+M0 (project scaffolding) is complete: an empty but running system, wired end to end. `backend/` and `frontend/` skeletons exist with a working health-check round trip; module logic (`intake`, `retrieval`, `triage`, `summary`, `location`) is still unimplemented — see [`docs/MILESTONES.md`](./docs/MILESTONES.md) for what's next (M1).
+
+## Commands
+
+Backend (from `backend/`, Python 3.13, venv at `backend/.venv`):
+- Install deps: `python -m venv .venv && .venv/Scripts/pip install -r requirements-dev.txt` (Windows) or `.venv/bin/pip install -r requirements-dev.txt` (macOS/Linux)
+- Dev server: `.venv/Scripts/python -m uvicorn app.main:app --reload --port 8000` — health-check at `GET /health`
+- Test: `.venv/Scripts/python -m pytest`
+- Migrations: `.venv/Scripts/python -m alembic upgrade head` (apply) / `alembic revision -m "..."` (new)
+
+Frontend (from `frontend/`, Node 24):
+- Install deps: `npm install`
+- Dev server: `npm run dev` — served at `http://localhost:5173`, fetches backend at `VITE_API_BASE_URL` (see `.env.example`, defaults to `http://localhost:8000`)
+- Test: `npm test`
+- Lint: `npm run lint`
+- Build: `npm run build`
+
+Database (from repo root): `docker compose up -d db` — Postgres + `pgvector` on `localhost:5432` (credentials in `docker-compose.yml`), then run backend migrations against it.
 
 ## Documentation
 
