@@ -1,0 +1,18 @@
+.app-footer {
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+}
+
+.app-footer__logo {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.app-footer__copy {
+  font-size: 13px;
+  color: var(--text-faint);
+}

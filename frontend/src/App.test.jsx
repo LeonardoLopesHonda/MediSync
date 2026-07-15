@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import App from './App'
@@ -15,9 +16,13 @@ describe('App', () => {
     vi.unstubAllGlobals()
   })
 
-  it('renders the backend health status once the fetch resolves', async () => {
-    render(<App />)
+  it('renders the home page at the root route', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>,
+    )
 
-    expect(await screen.findByText('ok')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Check symptoms' })).toBeInTheDocument()
   })
 })

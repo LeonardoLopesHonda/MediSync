@@ -1,6 +1,41 @@
-main {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 48px 24px;
+.app {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--sans);
+}
+
+/* Shared "map placeholder" mark, used on Results and Provider pages until
+   the real location module (M3) replaces it with an actual map. */
+.map-placeholder {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: repeating-linear-gradient(135deg, #eff6ff, #eff6ff 10px, #e0eaff 10px, #e0eaff 20px);
+}
+
+.map-placeholder__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #64748b;
+  letter-spacing: 0.02em;
   text-align: center;
+  padding: 0 16px;
+}
+
+.map-pin {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--brand-blue);
+  transform: rotate(-45deg);
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.3);
 }

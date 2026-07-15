@@ -1,25 +1,22 @@
-import { useEffect, useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import NavBar from './components/NavBar'
+import Footer from './components/Footer'
+import HomePage from './pages/HomePage'
+import ResultsPage from './pages/ResultsPage'
+import ProviderPage from './pages/ProviderPage'
 import './App.css'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'
-
 function App() {
-  const [status, setStatus] = useState('checking...')
-
-  useEffect(() => {
-    fetch(`${API_BASE_URL}/health`)
-      .then((res) => res.json())
-      .then((data) => setStatus(data.status))
-      .catch(() => setStatus('unreachable'))
-  }, [])
-
   return (
-    <main>
-      <h1>MediSync</h1>
-      <p>
-        Backend status: <strong>{status}</strong>
-      </p>
-    </main>
+    <div className="app">
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/results" element={<ResultsPage />} />
+        <Route path="/provider/:id" element={<ProviderPage />} />
+      </Routes>
+      <Footer />
+    </div>
   )
 }
 
