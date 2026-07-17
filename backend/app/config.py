@@ -6,6 +6,7 @@ class Settings(BaseSettings):
 
     database_url: str = "postgresql+psycopg://medisync:medisync@localhost:5432/medisync"
     frontend_origin: str = "http://localhost:5173"
+    ncbi_api_key: str | None = None
 
 
 settings = Settings()
